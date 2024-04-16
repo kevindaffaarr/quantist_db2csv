@@ -1,0 +1,26 @@
+# uv installation: pip install uv
+# create venv: uv venv
+# compile dependencies: uv pip compile pyproject.toml -o requirements.txt
+# compile dev dependencies: uv pip compile pyproject.toml -o requirements_dev.txt --extra dev
+# single installation example: uv pip install fastapi
+# main installation: uv pip install -r requirements.txt
+# main sync: uv pip sync requirements.txt
+# dev installation: uv pip install -r requirements_dev.txt
+# dev sync: uv pip sync requirements_dev.txt
+
+[project]
+name = "quantist_postgre2csv"
+version = "0.0.1"
+dependencies = [
+    "python-dotenv",
+    "SQLAlchemy",
+    "psycopg2",
+    "sqlalchemy-bigquery @ git+https://github.com/googleapis/python-bigquery-sqlalchemy.git@v1.11.0.dev3",
+    "google-cloud-bigquery",
+    "google-cloud-bigquery-storage",
+    "pyarrow",
+    "pandas[performance]",
+]
+
+[project.optional-dependencies]
+dev = ["ruff","uv"]
