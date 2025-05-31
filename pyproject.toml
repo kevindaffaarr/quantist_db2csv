@@ -9,7 +9,7 @@
 # dev sync: uv pip sync requirements_dev.txt
 
 [project]
-name = "quantist_postgre2csv"
+name = "quantist_db2csv"
 version = "0.0.1"
 dependencies = [
     "python-dotenv",

@@ -29,13 +29,14 @@ def getFromDB(TableClass:db.StockData|db.IndexData, code:str) -> pd.DataFrame:
 
 def exportCode(TableClass:db.StockData|db.IndexData, codeList:pd.DataFrame):
     for code in codeList['code']:
+        print(f"Exporting {TableClass.__name__} {code} to csv")
         data = getFromDB(TableClass, code)
         exportToCsv(TableClass, data, code)
 
 def main():
     # StockData
-    # stockList = db.get_list_stock()
-    # exportCode(db.StockData, stockList)
+    stockList = db.get_list_stock()
+    exportCode(db.StockData, stockList)
     # IndexData
     indexList = db.get_list_index()
     exportCode(db.IndexData, indexList)
